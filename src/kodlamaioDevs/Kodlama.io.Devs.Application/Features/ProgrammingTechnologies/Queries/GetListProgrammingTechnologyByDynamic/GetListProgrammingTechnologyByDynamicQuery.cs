@@ -38,8 +38,8 @@ public class GetListProgrammingTechnologyByDynamicQuery : IRequest<ProgrammingTe
                 size: request.PageRequest.PageSize, 
                 cancellationToken: cancellationToken);
             
-            var mappedprogrammingTechnologies = _mapper.Map<ProgrammingTechnologyListModel>(models);
-            return mappedprogrammingTechnologies;
+            var mappedProgrammingTechnologies = _mapper.Map<ProgrammingTechnologyListModel>(models);
+            return mappedProgrammingTechnologies;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Models;
+﻿using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Dtos;
+
+namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Models;
 
 /// <summary>
 /// Programlama dili için geri dönüş modeli
@@ -7,4 +9,5 @@ public class ProgrammingLanguageListDto
 {
     public int Id { get; set; }
     public string Name { get; set; }
+    public ICollection<ProgrammingTechnologyListDto> ProgrammingTechnologies { get; set; }
 }

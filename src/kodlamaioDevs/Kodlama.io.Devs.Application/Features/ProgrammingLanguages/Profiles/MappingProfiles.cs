@@ -29,5 +29,14 @@ public class MappingProfiles : Profile
         CreateMap<ProgrammingLanguage, ProgrammingLanguageListDto>().ReverseMap();
         
         CreateMap<ProgrammingLanguage, ProgrammingLanguageGetByIdDto>().ReverseMap();
+        
+        CreateMap<ProgrammingLanguage, ProgrammingLanguageListDto>()
+            .ForMember(c=>c.ProgrammingTechnologies, 
+                opt=>opt.MapFrom(c=>c.ProgrammingTechnologies))
+            .ReverseMap();
+
+        CreateMap<IPaginate<ProgrammingLanguage>, ProgrammingLanguageListModel>().ReverseMap();
+        
+        //added dynamict list and paging
     }
 }

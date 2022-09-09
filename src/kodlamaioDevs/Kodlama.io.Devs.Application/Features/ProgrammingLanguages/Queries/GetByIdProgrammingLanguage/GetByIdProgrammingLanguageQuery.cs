@@ -3,6 +3,7 @@ using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Models;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Queries.GetByIdProgrammingLanguage;
 
@@ -32,7 +33,7 @@ public class GetByIdProgrammingLanguageQuery : IRequest<ProgrammingLanguageGetBy
 
         public async Task<ProgrammingLanguageGetByIdDto> Handle(GetByIdProgrammingLanguageQuery request, CancellationToken cancellationToken)
         {
-            var programmingLanguage = await _programmingLanguageRepository.GetAsync(x => x.Id == request.Id);
+            var programmingLanguage = await _programmingLanguageRepository.Query().Include(x=>x.ProgrammingTechnologies).FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken: cancellationToken);
             
             _programmingLanguageBusinessRules.ProgrammingLanguageShouldExistWhenRequested(programmingLanguage);
             
