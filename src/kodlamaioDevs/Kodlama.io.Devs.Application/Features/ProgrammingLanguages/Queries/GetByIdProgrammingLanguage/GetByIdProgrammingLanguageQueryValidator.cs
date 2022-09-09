@@ -6,16 +6,16 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Queries.GetB
 /// <summary>
 /// Programlama dili GetById için validasyon sınıfı
 /// </summary>
-public class GetByIdProgrammingLanguageValidator : AbstractValidator<GetByIdProgrammingLanguageQuery>
+public class GetByIdProgrammingLanguageQueryValidator : AbstractValidator<GetByIdProgrammingLanguageQuery>
 {
-    public GetByIdProgrammingLanguageValidator()
+    public GetByIdProgrammingLanguageQueryValidator()
     {
         RuleFor(p => p.Id)
             .NotNull()
             .NotEmpty()
-            .WithMessage(ProgrammingLanguageConstants.ProgrammingLanguageIdIsRequired);
+            .WithMessage(ProgrammingLanguageMessages.ProgrammingLanguageIdIsRequired);
         
         RuleFor(p=>p.Id)
-            .GreaterThan(0).WithMessage(ProgrammingLanguageConstants.ProgrammingLanguageGreaterThanZero);
+            .GreaterThan(0).WithMessage(ProgrammingLanguageMessages.ProgrammingLanguageGreaterThanZero);
     }
 }

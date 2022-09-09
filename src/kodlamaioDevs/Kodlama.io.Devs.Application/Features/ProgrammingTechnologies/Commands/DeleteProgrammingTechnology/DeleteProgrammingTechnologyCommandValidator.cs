@@ -13,10 +13,10 @@ public class DeleteProgrammingTechnologyCommandValidator : AbstractValidator<Del
         RuleFor(d => d.Id)
             .NotEmpty()
             .NotNull()
-            .WithMessage(ProgrammingTechnologyConstants.IdIsRequired);
+            .WithMessage(ProgrammingTechnologyMessages.IdIsRequired);
         
         RuleFor(d => d.Id)
             .GreaterThan(0)
-            .WithMessage(ProgrammingTechnologyConstants.GreaterThanZero);
+            .WithMessage(ProgrammingTechnologyMessages.GreaterThanZero);
     }
 }

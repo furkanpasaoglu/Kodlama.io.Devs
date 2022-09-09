@@ -3,7 +3,7 @@
 /// <summary>
 /// Programlama Teknolojisi Sabitleri
 /// </summary>
-public class ProgrammingTechnologyConstants
+public class ProgrammingTechnologyMessages
 {
     public const string NameIsAlreadyExist = "Name is already exist";
     public const string NameIsRequired = "Name is required";

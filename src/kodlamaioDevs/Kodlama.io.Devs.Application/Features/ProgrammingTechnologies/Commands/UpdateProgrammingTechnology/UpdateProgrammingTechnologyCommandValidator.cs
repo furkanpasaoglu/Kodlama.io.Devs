@@ -13,20 +13,20 @@ public class UpdateProgrammingTechnologyCommandValidator: AbstractValidator<Upda
         RuleFor(x => x.Id)
             .NotEmpty()
             .NotNull()
-            .WithMessage(ProgrammingTechnologyConstants.IdIsRequired);
+            .WithMessage(ProgrammingTechnologyMessages.IdIsRequired);
         
         RuleFor(x => x.Name)
             .NotEmpty()
             .NotNull()
-            .WithMessage(ProgrammingTechnologyConstants.NameIsRequired);
+            .WithMessage(ProgrammingTechnologyMessages.NameIsRequired);
         
         RuleFor(p => p.ProgrammingLanguageId)
             .NotEmpty()
             .NotNull()
-            .WithMessage(ProgrammingTechnologyConstants.ProgrammingLanguageIdIsRequired);
+            .WithMessage(ProgrammingTechnologyMessages.ProgrammingLanguageIdIsRequired);
         
         RuleFor(d => d.ProgrammingLanguageId)
             .GreaterThan(0)
-            .WithMessage(ProgrammingTechnologyConstants.ProgrammingLanguageIdGreaterThanZero);
+            .WithMessage(ProgrammingTechnologyMessages.ProgrammingLanguageIdGreaterThanZero);
     }
 }

@@ -6,22 +6,22 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Commands.
 /// <summary>
 /// Programlama Teknolojisi İçin Validasyon Kuralları
 /// </summary>
-public class CreateProgrammingTechnologyValidator : AbstractValidator<CreateProgrammingTechnologyCommand>
+public class CreateProgrammingTechnologyCommandValidator : AbstractValidator<CreateProgrammingTechnologyCommand>
 {
-    public CreateProgrammingTechnologyValidator()
+    public CreateProgrammingTechnologyCommandValidator()
     {
         RuleFor(p => p.Name)
             .NotEmpty()
             .NotNull()
-            .WithMessage(ProgrammingTechnologyConstants.NameIsRequired);
+            .WithMessage(ProgrammingTechnologyMessages.NameIsRequired);
         
         RuleFor(p => p.ProgrammingLanguageId)
             .NotEmpty()
             .NotNull()
-            .WithMessage(ProgrammingTechnologyConstants.ProgrammingLanguageIdIsRequired);
+            .WithMessage(ProgrammingTechnologyMessages.ProgrammingLanguageIdIsRequired);
         
         RuleFor(d => d.ProgrammingLanguageId)
             .GreaterThan(0)
-            .WithMessage(ProgrammingTechnologyConstants.ProgrammingLanguageIdGreaterThanZero);
+            .WithMessage(ProgrammingTechnologyMessages.ProgrammingLanguageIdGreaterThanZero);
     }
 }

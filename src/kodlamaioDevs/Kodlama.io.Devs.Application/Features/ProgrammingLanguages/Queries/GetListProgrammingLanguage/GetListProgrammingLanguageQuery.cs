@@ -16,12 +16,12 @@ public class GetListProgrammingLanguageQuery : IRequest<ProgrammingLanguageListM
     /// <summary>
     /// Programlama Dili Listelemek için kullanılan işleyici sınıfıdır.
     /// </summary>
-    public class GetListProgrammingLanguageHandler : IRequestHandler<GetListProgrammingLanguageQuery,ProgrammingLanguageListModel>
+    public class GetListProgrammingLanguageQueryHandler : IRequestHandler<GetListProgrammingLanguageQuery,ProgrammingLanguageListModel>
     {
         private readonly IProgrammingLanguageRepository _programmingLanguageRepository;
         private readonly IMapper _mapper;
 
-        public GetListProgrammingLanguageHandler(IProgrammingLanguageRepository programmingLanguageRepository, IMapper mapper)
+        public GetListProgrammingLanguageQueryHandler(IProgrammingLanguageRepository programmingLanguageRepository, IMapper mapper)
         {
             _programmingLanguageRepository = programmingLanguageRepository;
             _mapper = mapper;

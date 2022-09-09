@@ -17,13 +17,13 @@ public class CreateProgrammingLanguageCommand : IRequest<CreatedProgrammingLangu
     /// <summary>
     /// Programlama Dili Eklemek için kullanılan işleyici sınıfıdır.
     /// </summary>
-    public class CreateProgrammingLanguageHandler : IRequestHandler<CreateProgrammingLanguageCommand,CreatedProgrammingLanguageDto>
+    public class CreateProgrammingLanguageCommandHandler : IRequestHandler<CreateProgrammingLanguageCommand,CreatedProgrammingLanguageDto>
     {
         private readonly IProgrammingLanguageRepository _programmingLanguageRepository;
         private readonly IMapper _mapper;
         private readonly ProgrammingLanguageBusinessRules _programmingLanguageBusinessRules;
 
-        public CreateProgrammingLanguageHandler(IProgrammingLanguageRepository programmingLanguageRepository,IMapper mapper, ProgrammingLanguageBusinessRules programmingLanguageBusinessRules)
+        public CreateProgrammingLanguageCommandHandler(IProgrammingLanguageRepository programmingLanguageRepository,IMapper mapper, ProgrammingLanguageBusinessRules programmingLanguageBusinessRules)
         {
             _programmingLanguageRepository = programmingLanguageRepository;
             _mapper = mapper;

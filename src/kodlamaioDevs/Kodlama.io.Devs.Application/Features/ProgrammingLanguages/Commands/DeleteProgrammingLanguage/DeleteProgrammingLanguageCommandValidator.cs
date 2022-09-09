@@ -6,17 +6,17 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.Del
 /// <summary>
 /// Programlama dili silme komutu için validasyon sınıfıdır.
 /// </summary>
-public class DeleteProgrammingLanguageValidator : AbstractValidator<DeleteProgrammingLanguageCommand>
+public class DeleteProgrammingLanguageCommandValidator : AbstractValidator<DeleteProgrammingLanguageCommand>
 {
-    public DeleteProgrammingLanguageValidator()
+    public DeleteProgrammingLanguageCommandValidator()
     {
         RuleFor(d => d.Id)
             .NotEmpty()
             .NotNull()
-            .WithMessage(ProgrammingLanguageConstants.ProgrammingLanguageIdIsRequired);
+            .WithMessage(ProgrammingLanguageMessages.ProgrammingLanguageIdIsRequired);
         
         RuleFor(d => d.Id)
             .GreaterThan(0)
-            .WithMessage(ProgrammingLanguageConstants.ProgrammingLanguageGreaterThanZero);
+            .WithMessage(ProgrammingLanguageMessages.ProgrammingLanguageGreaterThanZero);
     }
 }

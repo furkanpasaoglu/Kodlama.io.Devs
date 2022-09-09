@@ -3,7 +3,7 @@
 /// <summary>
 /// Programlama Dili Sabitleri
 /// </summary>
-public static class ProgrammingLanguageConstants
+public static class ProgrammingLanguageMessages
 {
     public const string ProgrammingLanguageDoesNotHaveAnyRecords = "Requested Programming Language does not have any records";
     public const string ProgrammingLanguageGreaterThanZero = "Programming Language Id must be greater than zero";

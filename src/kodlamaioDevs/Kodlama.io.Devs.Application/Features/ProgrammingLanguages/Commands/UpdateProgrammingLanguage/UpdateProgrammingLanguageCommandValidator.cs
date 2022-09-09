@@ -6,18 +6,18 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.Upd
 /// <summary>
 /// Programlama dili güncelleme komutu için validasyon sınıfıdır.
 /// </summary>
-public class UpdateProgrammingLanguageValidator : AbstractValidator<UpdateProgrammingLanguageCommand>
+public class UpdateProgrammingLanguageCommandValidator : AbstractValidator<UpdateProgrammingLanguageCommand>
 {
-    public UpdateProgrammingLanguageValidator()
+    public UpdateProgrammingLanguageCommandValidator()
     {
         RuleFor(x => x.Id)
             .NotEmpty()
             .NotNull()
-            .WithMessage(ProgrammingLanguageConstants.ProgrammingLanguageIdIsRequired);
+            .WithMessage(ProgrammingLanguageMessages.ProgrammingLanguageIdIsRequired);
         
         RuleFor(x => x.Name)
             .NotEmpty()
             .NotNull()
-            .WithMessage(ProgrammingLanguageConstants.ProgrammingLanguageNameIsRequired);
+            .WithMessage(ProgrammingLanguageMessages.ProgrammingLanguageNameIsRequired);
     }
 }

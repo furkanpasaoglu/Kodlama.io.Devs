@@ -26,7 +26,7 @@ public class ProgrammingLanguageBusinessRules
     {
         var result = await _programmingLanguageRepository.GetListAsync(x=>x.Name == name);
         if (result.Items.Any())
-            throw new BusinessException( ProgrammingLanguageConstants.ProgrammingLanguageNameIsAlreadyExist);
+            throw new BusinessException( ProgrammingLanguageMessages.ProgrammingLanguageNameIsAlreadyExist);
     } 
     
     /// <summary>
@@ -38,7 +38,7 @@ public class ProgrammingLanguageBusinessRules
     {
         var result = await _programmingLanguageRepository.GetListAsync(x=>x.Id == id);
         if (!result.Items.Any())
-            throw new BusinessException(ProgrammingLanguageConstants.ProgrammingLanguageNotFound);
+            throw new BusinessException(ProgrammingLanguageMessages.ProgrammingLanguageNotFound);
     }
     
     /// <summary>
@@ -49,6 +49,6 @@ public class ProgrammingLanguageBusinessRules
     public void ProgrammingLanguageShouldExistWhenRequested(ProgrammingLanguage programmingLanguage)
     {
         if (programmingLanguage is null) 
-            throw new BusinessException(ProgrammingLanguageConstants.ProgrammingLanguageDoesNotHaveAnyRecords);
+            throw new BusinessException(ProgrammingLanguageMessages.ProgrammingLanguageDoesNotHaveAnyRecords);
     }
 }

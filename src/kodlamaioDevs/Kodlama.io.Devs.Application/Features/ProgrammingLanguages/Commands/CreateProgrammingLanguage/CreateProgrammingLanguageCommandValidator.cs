@@ -6,13 +6,13 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.Cre
 /// <summary>
 /// Programlama dili oluşturma komutu için validasyon sınıfıdır.
 /// </summary>
-public class CreateProgrammingLanguageValidator : AbstractValidator<CreateProgrammingLanguageCommand>
+public class CreateProgrammingLanguageCommandValidator : AbstractValidator<CreateProgrammingLanguageCommand>
 {
-    public CreateProgrammingLanguageValidator()
+    public CreateProgrammingLanguageCommandValidator()
     {
         RuleFor(x => x.Name)
             .NotEmpty()
             .NotNull()
-            .WithMessage(ProgrammingLanguageConstants.ProgrammingLanguageNameIsRequired);
+            .WithMessage(ProgrammingLanguageMessages.ProgrammingLanguageNameIsRequired);
     }
 }
