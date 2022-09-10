@@ -1,7 +1,7 @@
 ﻿namespace Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Dtos;
 
 /// <summary>
-/// Programlama teknolojisini silmek için kullanılan dto
+/// Silinecek Programlama teknolojisini döndüren dto sınıfı.
 /// </summary>
 public class DeletedProgrammingTechnologyDto
 {

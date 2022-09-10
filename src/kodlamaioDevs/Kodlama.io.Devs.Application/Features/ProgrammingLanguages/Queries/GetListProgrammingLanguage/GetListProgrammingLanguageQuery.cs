@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core.Application.Pipelines.Authorization;
 using Core.Application.Requests;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Models;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -10,10 +11,12 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Queries.GetL
 /// <summary>
 /// Programlama dili için sorgu sınıfı
 /// </summary>
-public class GetListProgrammingLanguageQuery : IRequest<ProgrammingLanguageListModel>
+public class GetListProgrammingLanguageQuery : IRequest<ProgrammingLanguageListModel>, ISecuredRequest
 {
     public PageRequest PageRequest { get; set; }
     
+    public string[] Roles { get; } = { "User" };
+
     /// <summary>
     /// Programlama Dili Listelemek için kullanılan işleyici sınıfıdır.
     /// </summary>

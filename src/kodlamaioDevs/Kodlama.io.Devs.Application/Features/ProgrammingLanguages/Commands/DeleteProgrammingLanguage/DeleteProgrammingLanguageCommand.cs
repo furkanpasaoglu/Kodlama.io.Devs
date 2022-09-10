@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core.Application.Pipelines.Authorization;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Dtos;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -11,9 +12,10 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.Del
 /// <summary>
 /// Programlama Dili silmek için kullanılan komut sınıfıdır.
 /// </summary>
-public class DeleteProgrammingLanguageCommand : IRequest<DeletedProgrammingLanguageDto>
+public class DeleteProgrammingLanguageCommand : IRequest<DeletedProgrammingLanguageDto>,ISecuredRequest
 {
     public int Id { get; set; }
+    public string[] Roles { get; } = { "User" };
 
     /// <summary>
     /// Programlama Dili Silmek için kullanılan işleyici sınıfıdır.

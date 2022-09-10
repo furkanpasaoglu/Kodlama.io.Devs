@@ -1,7 +1,7 @@
 ﻿namespace Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Dtos;
 
 /// <summary>
-/// Programlama teknolojisini güncellemek için kullanılan dto
+/// Güncellenecek Programlama teknolojisini döndüren dto sınıfı.
 /// </summary>
 public class UpdatedProgrammingTechnologyDto
 {

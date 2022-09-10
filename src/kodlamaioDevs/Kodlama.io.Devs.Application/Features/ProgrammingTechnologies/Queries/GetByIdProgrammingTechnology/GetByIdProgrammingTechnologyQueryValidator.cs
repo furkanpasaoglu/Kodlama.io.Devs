@@ -16,6 +16,6 @@ public class GetByIdProgrammingTechnologyQueryValidator : AbstractValidator<GetB
             .WithMessage(ProgrammingTechnologyMessages.IdIsRequired);
         
         RuleFor(p=>p.Id)
-            .GreaterThan(0).WithMessage(ProgrammingTechnologyMessages.ProgrammingTechnologyGreaterThanZero);
+            .GreaterThan(0).WithMessage(ProgrammingTechnologyMessages.GreaterThanZero);
     }
 }

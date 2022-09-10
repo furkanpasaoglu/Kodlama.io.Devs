@@ -1,7 +1,7 @@
 ﻿namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Constants;
 
 /// <summary>
-/// Programlama Dili Sabitleri
+/// Programlama Dili Mesajları
 /// </summary>
 public static class ProgrammingLanguageMessages
 {

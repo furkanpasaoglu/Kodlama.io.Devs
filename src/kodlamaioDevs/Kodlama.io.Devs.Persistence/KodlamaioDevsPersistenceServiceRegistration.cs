@@ -20,6 +20,9 @@ public static class KodlamaioDevsPersistenceServiceRegistration
 
         services.AddScoped<IProgrammingLanguageRepository, ProgrammingLanguageRepository>();
         services.AddScoped<IProgrammingTechnologyRepository, ProgrammingTechnologyRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
+        services.AddScoped<IUserSocialMediaAddressRepository, UserSocialMediaAddressRepository>();
         
         return services;
     }

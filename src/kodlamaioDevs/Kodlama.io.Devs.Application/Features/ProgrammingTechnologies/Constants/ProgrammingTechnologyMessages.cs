@@ -1,7 +1,7 @@
 ﻿namespace Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Constants;
 
 /// <summary>
-/// Programlama Teknolojisi Sabitleri
+/// Programlama Teknolojisi Mesajları
 /// </summary>
 public class ProgrammingTechnologyMessages
 {
@@ -13,6 +13,4 @@ public class ProgrammingTechnologyMessages
     public const string DoesNotHaveAnyRecords = "Does not have any records";
     public const string ProgrammingLanguageIdGreaterThanZero = "Programming Language Id must be greater than zero";
     public const string ProgrammingLanguageNotFound = "Programming Language not found";
-    public const string ProgrammingTechnologyGreaterThanZero = "Programming Technology Id must be greater than zero";
-    
 }

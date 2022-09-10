@@ -1,7 +1,7 @@
 ﻿namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Dtos;
 
 /// <summary>
-/// Programlama dili güncellemek için kullanılan dto sınıfıdır.
+/// Güncellenecek Programlama dilinin döndüren dto sınıfı.
 /// </summary>
 public class UpdatedProgrammingLanguageDto
 {

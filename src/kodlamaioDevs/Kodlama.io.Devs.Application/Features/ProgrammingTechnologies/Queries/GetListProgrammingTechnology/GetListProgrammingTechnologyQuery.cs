@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core.Application.Pipelines.Authorization;
 using Core.Application.Requests;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Models;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -10,14 +11,14 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Queries.G
 /// <summary>
 /// Programlama teknolojisi için sorgu sınıfı
 /// </summary>
-public class GetListProgrammingTechnologyQuery : IRequest<ProgrammingTechnologyListModel>
+public class GetListProgrammingTechnologyQuery : IRequest<ProgrammingTechnologyListModel>,ISecuredRequest
 {
-    public PageRequest PageRequest { get; set; }
+    public PageRequest PageRequest { get; set; }    public string[] Roles { get; } = { "User" };
+
     
     /// <summary>
     /// Programlama teknolojisi için işleyici sınıfı
     /// </summary>
-    
     public class GetListProgrammingTechnologyQueryHandler : IRequestHandler<GetListProgrammingTechnologyQuery, ProgrammingTechnologyListModel>
     {
         private readonly IProgrammingTechnologyRepository _programmingTechnologyRepository;

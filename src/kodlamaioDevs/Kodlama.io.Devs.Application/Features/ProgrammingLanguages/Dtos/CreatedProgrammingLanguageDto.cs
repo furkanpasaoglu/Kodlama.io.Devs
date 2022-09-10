@@ -1,7 +1,7 @@
 ﻿namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Dtos;
 
 /// <summary>
-/// Programlama dili oluşturmak için kullanılan dto sınıfıdır.
+/// Oluşturulan Programlama dilini döndüren dto sınıfı.
 /// </summary>
 public class CreatedProgrammingLanguageDto
 {

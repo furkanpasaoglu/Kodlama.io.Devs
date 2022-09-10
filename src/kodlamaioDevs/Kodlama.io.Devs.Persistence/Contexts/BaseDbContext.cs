@@ -1,4 +1,5 @@
-﻿using Kodlama.io.Devs.Domain.Entities;
+﻿using Core.Security.Entities;
+using Kodlama.io.Devs.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -12,6 +13,10 @@ public class BaseDbContext : DbContext
     protected IConfiguration Configuration { get; set; }
     public DbSet<ProgrammingLanguage> ProgrammingLanguages { get; set; }
     public DbSet<ProgrammingTechnology> ProgrammingTechnologies { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<OperationClaim> OperationClaims { get; set; }
+    public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
+    public DbSet<UserSocialMediaAddress> UserSocialMediaAddresses { get; set; }
 
     public BaseDbContext(DbContextOptions dbContextOptions, IConfiguration configuration) : base(dbContextOptions)
     {
@@ -36,6 +41,47 @@ public class BaseDbContext : DbContext
             p.Property(x => x.Name).HasColumnName("Name");
             p.HasOne(x => x.ProgrammingLanguage);
         });
+        
+        modelBuilder.Entity<UserSocialMediaAddress>(p =>
+        {
+            p.ToTable("UserSocialMediaAddresses").HasKey(x => x.Id);
+            p.Property(x => x.Id).HasColumnName("Id");
+            p.Property(x => x.UserId).HasColumnName("UserId");
+            p.Property(x => x.GithubUrl).HasColumnName("GithubUrl");
+            p.HasOne(x => x.User);
+        });
+        
+        modelBuilder.Entity<User>(p =>
+        {
+            p.ToTable("Users").HasKey(u => u.Id);
+            p.Property(u => u.Id).HasColumnName("Id");
+            p.Property(u => u.FirstName).HasColumnName("FirstName");
+            p.Property(u => u.LastName).HasColumnName("LastName");
+            p.Property(u => u.Email).HasColumnName("Email");
+            p.Property(u => u.PasswordSalt).HasColumnName("PasswordSalt");
+            p.Property(u => u.PasswordHash).HasColumnName("PasswordHash");
+            p.Property(u => u.Status).HasColumnName("Status");
+            p.Property(u => u.AuthenticatorType).HasColumnName("AuthenticatorType");
+            p.HasMany(c => c.UserOperationClaims);
+            p.HasMany(c => c.RefreshTokens);
+        });
+        
+        modelBuilder.Entity<OperationClaim>(p =>
+        {
+            p.ToTable("OperationClaims").HasKey(o => o.Id);
+            p.Property(o => o.Id).HasColumnName("Id");
+            p.Property(o => o.Name).HasColumnName("Name");
+        });
+        
+        modelBuilder.Entity<UserOperationClaim>(p =>
+        {
+            p.ToTable("UserOperationClaims").HasKey(u => u.Id);
+            p.Property(u => u.Id).HasColumnName("Id");
+            p.Property(u => u.UserId).HasColumnName("UserId");
+            p.Property(u => u.OperationClaimId).HasColumnName("OperationClaimId");
+            p.HasOne(u => u.User);
+            p.HasOne(u => u.OperationClaim);
+        });
 
         //Programlama dilleri tablosuna varsayılan kayıtları ekler. (Seeds)
         ProgrammingLanguage[] programmingLanguageEntitySeeds =
@@ -57,5 +103,20 @@ public class BaseDbContext : DbContext
             new (6, 3,"React")
         };
         modelBuilder.Entity<ProgrammingTechnology>().HasData(programmingTechnologyEntitySeeds);
+        
+        //Operasyon yetki tablosuna varsayılan kayıtları ekler. (Seeds)
+        OperationClaim[] operationClaimsEntitySeeds =
+        {
+            new(1, "Admin"), 
+            new(2, "User")
+        };
+        modelBuilder.Entity<OperationClaim>().HasData(operationClaimsEntitySeeds);
+            
+        //Kullanıcı Sosyal Medya Adresi tablosuna varsayılan kayıtları ekler. (Seeds)
+        UserSocialMediaAddress[] userSocialMediaAddressEntitySeeds =
+        {
+            new(1,1,"https://github.com/furkanpasaoglu")
+        };
+        modelBuilder.Entity<UserSocialMediaAddress>().HasData(userSocialMediaAddressEntitySeeds);
     }
 }

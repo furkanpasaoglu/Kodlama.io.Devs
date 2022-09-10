@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Core.Application.Pipelines.Authorization;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Dtos;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Models;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -10,9 +12,11 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Queries.GetB
 /// <summary>
 /// Programlama dili için sorgu sınıfı
 /// </summary>
-public class GetByIdProgrammingLanguageQuery : IRequest<ProgrammingLanguageGetByIdDto>
+public class GetByIdProgrammingLanguageQuery : IRequest<ProgrammingLanguageGetByIdDto>, ISecuredRequest
 {
     public int Id { get; set; }
+    
+    public string[] Roles { get; } = { "User" };
 
     /// <summary>
     /// Programlama Dili Getirmek için kullanılan işleyici sınıfıdır.

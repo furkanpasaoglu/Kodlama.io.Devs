@@ -3,7 +3,6 @@ using Core.Persistence.Dynamic;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Commands.CreateProgrammingTechnology;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Commands.DeleteProgrammingTechnology;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Commands.UpdateProgrammingTechnology;
-using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Models;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Queries.GetByIdProgrammingTechnology;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Queries.GetListProgrammingTechnology;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Queries.GetListProgrammingTechnologyByDynamic;
@@ -14,8 +13,6 @@ namespace Kodlama.io.Devs.WebAPI.Controllers;
 /// <summary>
 /// Programlama teknolojileri için kontrolcüler.
 /// </summary>
-[Route("api/[controller]")]
-[ApiController]
 public class ProgrammingTechnologiesController : BaseController
 {
     /// <summary>

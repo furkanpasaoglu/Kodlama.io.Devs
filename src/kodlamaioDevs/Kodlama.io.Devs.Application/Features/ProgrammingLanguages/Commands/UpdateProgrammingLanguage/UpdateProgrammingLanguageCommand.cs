@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core.Application.Pipelines.Authorization;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Dtos;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -11,10 +12,12 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.Upd
 /// <summary>
 /// Programlama Dili güncellemek için kullanılan komut sınıfıdır.
 /// </summary>
-public class UpdateProgrammingLanguageCommand : IRequest<UpdatedProgrammingLanguageDto>
+public class UpdateProgrammingLanguageCommand : IRequest<UpdatedProgrammingLanguageDto>,ISecuredRequest
 {
     public int Id { get; set; }
     public string Name { get; set; }
+    
+    public string[] Roles { get; } = { "User" };
 
     /// <summary>
     /// Programlama Dili Güncellemek için kullanılan işleyici sınıfıdır.

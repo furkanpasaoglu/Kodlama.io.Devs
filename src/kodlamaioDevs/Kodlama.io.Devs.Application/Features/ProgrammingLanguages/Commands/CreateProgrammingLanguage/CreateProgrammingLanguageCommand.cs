@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core.Application.Pipelines.Authorization;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Dtos;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -10,10 +11,11 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.Cre
 /// <summary>
 /// Programlama Dili eklemek için kullanılan komut sınıfıdır.
 /// </summary>
-public class CreateProgrammingLanguageCommand : IRequest<CreatedProgrammingLanguageDto>
+public class CreateProgrammingLanguageCommand : IRequest<CreatedProgrammingLanguageDto>, ISecuredRequest
 {
     public string Name { get; set; }
-    
+    public string[] Roles { get; } = { "User" };
+
     /// <summary>
     /// Programlama Dili Eklemek için kullanılan işleyici sınıfıdır.
     /// </summary>

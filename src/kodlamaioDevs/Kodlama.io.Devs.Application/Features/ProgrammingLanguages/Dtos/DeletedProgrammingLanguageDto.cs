@@ -1,7 +1,7 @@
 ﻿namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Dtos;
 
 /// <summary>
-/// Programlama dili silmek için kullanılan dto sınıfıdır.
+/// Silinecek Programlama dilini döndüren dto sınıfı.
 /// </summary>
 public class DeletedProgrammingLanguageDto
 {

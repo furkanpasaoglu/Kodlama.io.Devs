@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core.Application.Pipelines.Authorization;
 using Core.Application.Requests;
 using Core.Persistence.Dynamic;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Models;
@@ -11,11 +12,13 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Queries.GetL
 /// <summary>
 /// Programlama dili için sorgu sınıfı
 /// </summary>
-public class GetListProgrammingLanguageByDynamicQuery  : IRequest<ProgrammingLanguageListModel>
+public class GetListProgrammingLanguageByDynamicQuery  : IRequest<ProgrammingLanguageListModel>, ISecuredRequest
 {
     public Dynamic Dynamic { get; set; }
     public PageRequest PageRequest { get; set; }
     
+    public string[] Roles { get; } = { "User" };
+
     /// <summary>
     /// Programlama dili için işleyici sınıfı
     /// </summary>

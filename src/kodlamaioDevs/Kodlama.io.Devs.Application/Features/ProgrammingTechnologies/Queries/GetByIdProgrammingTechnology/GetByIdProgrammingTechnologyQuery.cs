@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core.Application.Pipelines.Authorization;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Dtos;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -10,9 +11,11 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Queries.G
 /// <summary>
 /// Programlama teknolojisi için sorgu sınıfı
 /// </summary>
-public class GetByIdProgrammingTechnologyQuery : IRequest<ProgrammingTechnologyGetByIdDto>
+public class GetByIdProgrammingTechnologyQuery : IRequest<ProgrammingTechnologyGetByIdDto>, ISecuredRequest
 {
     public int Id { get; set; }
+    
+    public string[] Roles { get; } = { "User" };
 
     /// <summary>
     /// Programlama teknolojisi için işleyici sınıf

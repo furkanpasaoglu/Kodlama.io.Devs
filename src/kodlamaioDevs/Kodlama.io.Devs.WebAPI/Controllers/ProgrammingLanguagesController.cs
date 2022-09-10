@@ -11,8 +11,6 @@ namespace Kodlama.io.Devs.WebAPI.Controllers;
 /// <summary>
 /// Programlama dilleri için kontrolcüler.
 /// </summary>
-[Route("api/[controller]")]
-[ApiController]
 public class ProgrammingLanguagesController : BaseController
 {
     /// <summary>
