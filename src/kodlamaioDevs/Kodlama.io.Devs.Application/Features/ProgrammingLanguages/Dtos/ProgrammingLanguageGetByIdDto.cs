@@ -1,4 +1,4 @@
-﻿using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Dtos;
+﻿using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Dtos;
 
 namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Dtos;
 
@@ -9,5 +9,5 @@ public class ProgrammingLanguageGetByIdDto
 {
     public int Id { get; set; }
     public string Name { get; set; }
-    public ICollection<ProgrammingTechnologyListDto> ProgrammingTechnologies { get; set; }
+    public ICollection<ProgrammingLanguageTechnologyListDto> ProgrammingTechnologies { get; set; }
 }

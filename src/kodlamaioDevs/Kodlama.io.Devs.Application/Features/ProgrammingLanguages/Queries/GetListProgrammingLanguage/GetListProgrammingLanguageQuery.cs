@@ -34,7 +34,7 @@ public class GetListProgrammingLanguageQuery : IRequest<ProgrammingLanguageListM
         public async Task<ProgrammingLanguageListModel> Handle(GetListProgrammingLanguageQuery request, CancellationToken cancellationToken)
         {
             var programmingLanguages = await _programmingLanguageRepository.GetListAsync(
-                include:m=>m.Include(x=>x.ProgrammingTechnologies),
+                include:m=>m.Include(x=>x.ProgrammingLanguageTechnologies),
                 index:request.PageRequest.Page, 
                 size:request.PageRequest.PageSize, 
                 cancellationToken: cancellationToken);

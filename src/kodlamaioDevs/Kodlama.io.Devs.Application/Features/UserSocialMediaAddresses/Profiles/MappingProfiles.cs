@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Core.Persistence.Paging;
-using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Models;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Models;
 using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Commands.CreateUserSocialMediaAddress;
 using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Commands.DeleteUserSocialMediaAddress;
 using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Commands.UpdateUserSocialMediaAddress;
@@ -58,6 +58,6 @@ public class MappingProfiles : Profile
                     opt.MapFrom(c => c.User.Email)).ReverseMap();
             
 
-        CreateMap<IPaginate<UserSocialMediaAddress>, ProgrammingTechnologyListModel>().ReverseMap();
+        CreateMap<IPaginate<UserSocialMediaAddress>, ProgrammingLanguageTechnologyListModel>().ReverseMap();
     }
 }

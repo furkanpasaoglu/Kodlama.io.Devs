@@ -12,7 +12,7 @@ public class BaseDbContext : DbContext
 {
     protected IConfiguration Configuration { get; set; }
     public DbSet<ProgrammingLanguage> ProgrammingLanguages { get; set; }
-    public DbSet<ProgrammingTechnology> ProgrammingTechnologies { get; set; }
+    public DbSet<ProgrammingLanguageTechnology> ProgrammingLanguageTechnologies { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<OperationClaim> OperationClaims { get; set; }
     public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
@@ -30,12 +30,12 @@ public class BaseDbContext : DbContext
             p.ToTable("ProgrammingLanguages").HasKey(x=>x.Id);
             p.Property(x => x.Id).HasColumnName("Id");
             p.Property(x => x.Name).HasColumnName("Name");
-            p.HasMany(x => x.ProgrammingTechnologies);
+            p.HasMany(x => x.ProgrammingLanguageTechnologies);
         });
 
-        modelBuilder.Entity<ProgrammingTechnology>(p =>
+        modelBuilder.Entity<ProgrammingLanguageTechnology>(p =>
         {
-            p.ToTable("ProgrammingTechnologies").HasKey(x => x.Id);
+            p.ToTable("ProgrammingLanguageTechnologies").HasKey(x => x.Id);
             p.Property(x => x.Id).HasColumnName("Id");
             p.Property(x=>x.ProgrammingLanguageId).HasColumnName("ProgrammingLanguageId");
             p.Property(x => x.Name).HasColumnName("Name");
@@ -92,8 +92,8 @@ public class BaseDbContext : DbContext
         };
         modelBuilder.Entity<ProgrammingLanguage>().HasData(programmingLanguageEntitySeeds);
         
-        //Programlama teknolojileri tablosuna varsayılan kayıtları ekler. (Seeds)
-        ProgrammingTechnology[] programmingTechnologyEntitySeeds =
+        //Programlama dili teknolojileri tablosuna varsayılan kayıtları ekler. (Seeds)
+        ProgrammingLanguageTechnology[] programmingLanguageTechnologyEntitySeeds =
         {
             new (1, 1,"ASP.NET Core"),
             new (2, 1,"Wpf"),
@@ -102,7 +102,7 @@ public class BaseDbContext : DbContext
             new (5, 3,"Vue"),
             new (6, 3,"React")
         };
-        modelBuilder.Entity<ProgrammingTechnology>().HasData(programmingTechnologyEntitySeeds);
+        modelBuilder.Entity<ProgrammingLanguageTechnology>().HasData(programmingLanguageTechnologyEntitySeeds);
         
         //Operasyon yetki tablosuna varsayılan kayıtları ekler. (Seeds)
         OperationClaim[] operationClaimsEntitySeeds =
@@ -113,10 +113,11 @@ public class BaseDbContext : DbContext
         modelBuilder.Entity<OperationClaim>().HasData(operationClaimsEntitySeeds);
             
         //Kullanıcı Sosyal Medya Adresi tablosuna varsayılan kayıtları ekler. (Seeds)
-        UserSocialMediaAddress[] userSocialMediaAddressEntitySeeds =
-        {
-            new(1,1,"https://github.com/furkanpasaoglu")
-        };
-        modelBuilder.Entity<UserSocialMediaAddress>().HasData(userSocialMediaAddressEntitySeeds);
+        //Not: İlk User Kayıt Olduktan Sonra Bu İşlem Yapılmalıdır.
+        // UserSocialMediaAddress[] userSocialMediaAddressEntitySeeds =
+        // {
+        //     new(1,1,"https://github.com/furkanpasaoglu")
+        // };
+        // modelBuilder.Entity<UserSocialMediaAddress>().HasData(userSocialMediaAddressEntitySeeds);
     }
 }

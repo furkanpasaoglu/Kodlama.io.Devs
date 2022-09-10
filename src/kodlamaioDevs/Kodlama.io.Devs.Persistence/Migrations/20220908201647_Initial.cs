@@ -22,7 +22,7 @@ namespace Kodlama.io.Devs.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProgrammingTechnologies",
+                name: "ProgrammingLanguageTechnologies",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -32,9 +32,9 @@ namespace Kodlama.io.Devs.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProgrammingTechnologies", x => x.Id);
+                    table.PrimaryKey("PK_ProgrammingLanguageTechnologies", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProgrammingTechnologies_ProgrammingLanguages_ProgrammingLanguageId",
+                        name: "FK_ProgrammingLanguageTechnologies_ProgrammingLanguages_ProgrammingLanguageId",
                         column: x => x.ProgrammingLanguageId,
                         principalTable: "ProgrammingLanguages",
                         principalColumn: "Id",
@@ -57,7 +57,7 @@ namespace Kodlama.io.Devs.Persistence.Migrations
                 values: new object[] { 3, "Javascript" });
 
             migrationBuilder.InsertData(
-                table: "ProgrammingTechnologies",
+                table: "ProgrammingLanguageTechnologies",
                 columns: new[] { "Id", "Name", "ProgrammingLanguageId" },
                 values: new object[,]
                 {
@@ -70,15 +70,15 @@ namespace Kodlama.io.Devs.Persistence.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProgrammingTechnologies_ProgrammingLanguageId",
-                table: "ProgrammingTechnologies",
+                name: "IX_ProgrammingLanguageTechnologies_ProgrammingLanguageId",
+                table: "ProgrammingLanguageTechnologies",
                 column: "ProgrammingLanguageId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "ProgrammingTechnologies");
+                name: "ProgrammingLanguageTechnologies");
 
             migrationBuilder.DropTable(
                 name: "ProgrammingLanguages");

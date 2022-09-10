@@ -1,11 +1,11 @@
 ﻿using Core.Application.Requests;
 using Core.Persistence.Dynamic;
-using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Commands.CreateProgrammingTechnology;
-using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Commands.DeleteProgrammingTechnology;
-using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Commands.UpdateProgrammingTechnology;
-using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Queries.GetByIdProgrammingTechnology;
-using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Queries.GetListProgrammingTechnology;
-using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Queries.GetListProgrammingTechnologyByDynamic;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Commands.CreateProgrammingLanguageTechnology;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Commands.DeleteProgrammingLanguageTechnology;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Commands.UpdateProgrammingLanguageTechnology;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Queries.GetByIdProgrammingLanguageTechnology;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Queries.GetListProgrammingLanguageTechnology;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Queries.GetListProgrammingLanguageTechnologyByDynamic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kodlama.io.Devs.WebAPI.Controllers;
@@ -18,48 +18,48 @@ public class ProgrammingTechnologiesController : BaseController
     /// <summary>
     /// Programlama teknolojisi ekleme işlemi.
     /// </summary>
-    /// <param name="createProgrammingTechnologyCommand">Eklenecek programlama dili bilgileri.</param>
+    /// <param name="createProgrammingLanguageTechnologyCommand">Eklenecek programlama dili bilgileri.</param>
     /// <returns>Eklenen programlama dili bilgileri.</returns>
     [HttpPost]
-    public async Task<IActionResult> Add([FromBody] CreateProgrammingTechnologyCommand createProgrammingTechnologyCommand)
+    public async Task<IActionResult> Add([FromBody] CreateProgrammingLanguageTechnologyCommand createProgrammingLanguageTechnologyCommand)
     {
-        var result = await Mediator!.Send(createProgrammingTechnologyCommand);
+        var result = await Mediator!.Send(createProgrammingLanguageTechnologyCommand);
         return Created("", result);
     }
     
     /// <summary>
     /// Programlama teknolojisi güncelleme işlemi.
     /// </summary>
-    /// <param name="updateProgrammingTechnologyCommand">Güncellenecek programlama teknolojisi bilgileri.</param>
+    /// <param name="updateProgrammingLanguageTechnologyCommand">Güncellenecek programlama teknolojisi bilgileri.</param>
     /// <returns>Güncellenen programlama teknolojisi bilgileri.</returns>
     [HttpPut]
-    public async Task<IActionResult> Update([FromBody] UpdateProgrammingTechnologyCommand updateProgrammingTechnologyCommand)
+    public async Task<IActionResult> Update([FromBody] UpdateProgrammingLanguageTechnologyCommand updateProgrammingLanguageTechnologyCommand)
     {
-        var result = await Mediator!.Send(updateProgrammingTechnologyCommand);
+        var result = await Mediator!.Send(updateProgrammingLanguageTechnologyCommand);
         return Ok(result);
     }
     
     /// <summary>
     /// Programlama teknolojisi silme işlemi.
     /// </summary>
-    /// <param name="deleteProgrammingTechnologyCommand">Silinecek programlama teknolojisi bilgileri.</param>
+    /// <param name="deleteProgrammingLanguageTechnologyCommand">Silinecek programlama teknolojisi bilgileri.</param>
     /// <returns>Silinen programlama teknolojisi bilgileri.</returns>
     [HttpDelete("{Id}")]
-    public async Task<IActionResult> Delete([FromRoute] DeleteProgrammingTechnologyCommand deleteProgrammingTechnologyCommand)
+    public async Task<IActionResult> Delete([FromRoute] DeleteProgrammingLanguageTechnologyCommand deleteProgrammingLanguageTechnologyCommand)
     {
-        var result = await Mediator!.Send(deleteProgrammingTechnologyCommand);
+        var result = await Mediator!.Send(deleteProgrammingLanguageTechnologyCommand);
         return Ok(result);
     }
     
     /// <summary>
     /// Programlama teknolojisi bilgilerini getirme işlemi.
     /// </summary>
-    /// <param name="getByIdProgrammingTechnologyQuery">Getirilecek programlama teknolojisi bilgileri.</param>
+    /// <param name="getByIdProgrammingLanguageTechnologyQuery">Getirilecek programlama teknolojisi bilgileri.</param>
     /// <returns>Getirilen programlama teknolojisi bilgileri.</returns>
     [HttpGet("{Id}")]
-    public async Task<IActionResult> GetById([FromRoute] GetByIdProgrammingTechnologyQuery  getByIdProgrammingTechnologyQuery)
+    public async Task<IActionResult> GetById([FromRoute] GetByIdProgrammingLanguageTechnologyQuery  getByIdProgrammingLanguageTechnologyQuery)
     {
-        var result = await Mediator!.Send(getByIdProgrammingTechnologyQuery);
+        var result = await Mediator!.Send(getByIdProgrammingLanguageTechnologyQuery);
         return Ok(result);
     }
     
@@ -71,8 +71,8 @@ public class ProgrammingTechnologiesController : BaseController
     [HttpGet]
     public async Task<IActionResult> GetList([FromQuery] PageRequest  pageRequest)
     {
-        GetListProgrammingTechnologyQuery getListProgrammingTechnologyQuery = new() { PageRequest = pageRequest };
-        var result = await Mediator!.Send(getListProgrammingTechnologyQuery);
+        GetListProgrammingLanguageTechnologyQuery getListProgrammingLanguageTechnologyQuery = new() { PageRequest = pageRequest };
+        var result = await Mediator!.Send(getListProgrammingLanguageTechnologyQuery);
         return Ok(result);
     }
     
@@ -85,7 +85,7 @@ public class ProgrammingTechnologiesController : BaseController
     [HttpPost("GetList/ByDynamic")]
     public async Task<ActionResult> GetListByDynamic([FromQuery] PageRequest pageRequest, [FromBody] Dynamic dynamic)
     {
-        var getListByDynamicProgrammingTechnologyQuery = new GetListProgrammingTechnologyByDynamicQuery { PageRequest = pageRequest, Dynamic = dynamic };
+        var getListByDynamicProgrammingTechnologyQuery = new GetListProgrammingLanguageTechnologyByDynamicQuery { PageRequest = pageRequest, Dynamic = dynamic };
         var result = await Mediator!.Send(getListByDynamicProgrammingTechnologyQuery);
         return Ok(result);
 

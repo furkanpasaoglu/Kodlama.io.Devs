@@ -208,7 +208,7 @@ namespace Kodlama.io.Devs.Persistence.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Kodlama.io.Devs.Domain.Entities.ProgrammingTechnology", b =>
+            modelBuilder.Entity("Kodlama.io.Devs.Domain.Entities.ProgrammingLanguageTechnology", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -230,7 +230,7 @@ namespace Kodlama.io.Devs.Persistence.Migrations
 
                     b.HasIndex("ProgrammingLanguageId");
 
-                    b.ToTable("ProgrammingTechnologies", (string)null);
+                    b.ToTable("ProgrammingLanguageTechnologies", (string)null);
 
                     b.HasData(
                         new
@@ -334,10 +334,10 @@ namespace Kodlama.io.Devs.Persistence.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Kodlama.io.Devs.Domain.Entities.ProgrammingTechnology", b =>
+            modelBuilder.Entity("Kodlama.io.Devs.Domain.Entities.ProgrammingLanguageTechnology", b =>
                 {
                     b.HasOne("Kodlama.io.Devs.Domain.Entities.ProgrammingLanguage", "ProgrammingLanguage")
-                        .WithMany("ProgrammingTechnologies")
+                        .WithMany("ProgrammingLanguageTechnologies")
                         .HasForeignKey("ProgrammingLanguageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -365,7 +365,7 @@ namespace Kodlama.io.Devs.Persistence.Migrations
 
             modelBuilder.Entity("Kodlama.io.Devs.Domain.Entities.ProgrammingLanguage", b =>
                 {
-                    b.Navigation("ProgrammingTechnologies");
+                    b.Navigation("ProgrammingLanguageTechnologies");
                 });
 #pragma warning restore 612, 618
         }

@@ -32,7 +32,7 @@ public class MappingProfiles : Profile
         
         CreateMap<ProgrammingLanguage, ProgrammingLanguageListDto>()
             .ForMember(c=>c.ProgrammingTechnologies, 
-                opt=>opt.MapFrom(c=>c.ProgrammingTechnologies))
+                opt=>opt.MapFrom(c=>c.ProgrammingLanguageTechnologies))
             .ReverseMap();
 
         CreateMap<IPaginate<ProgrammingLanguage>, ProgrammingLanguageListModel>().ReverseMap();

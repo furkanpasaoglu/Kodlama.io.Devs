@@ -36,7 +36,7 @@ public class GetListProgrammingLanguageByDynamicQuery  : IRequest<ProgrammingLan
         public async Task<ProgrammingLanguageListModel> Handle(GetListProgrammingLanguageByDynamicQuery request, CancellationToken cancellationToken)
         {
             var models = await _programmingLanguageRepository.GetListByDynamicAsync(request.Dynamic,include:
-                m => m.Include(c => c.ProgrammingTechnologies),
+                m => m.Include(c => c.ProgrammingLanguageTechnologies),
                 index: request.PageRequest.Page,
                 size: request.PageRequest.PageSize, 
                 cancellationToken: cancellationToken);

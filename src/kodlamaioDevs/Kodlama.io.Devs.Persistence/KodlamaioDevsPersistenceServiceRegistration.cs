@@ -19,7 +19,7 @@ public static class KodlamaioDevsPersistenceServiceRegistration
             options.UseSqlServer(configuration.GetConnectionString("KodlamaioDevsConnectionString")));
 
         services.AddScoped<IProgrammingLanguageRepository, ProgrammingLanguageRepository>();
-        services.AddScoped<IProgrammingTechnologyRepository, ProgrammingTechnologyRepository>();
+        services.AddScoped<IProgrammingLanguageTechnologyRepository, ProgrammingLanguageTechnologyRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
         services.AddScoped<IUserSocialMediaAddressRepository, UserSocialMediaAddressRepository>();
