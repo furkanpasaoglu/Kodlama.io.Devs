@@ -2,12 +2,12 @@
 using Core.Application.Pipelines.Authorization;
 using Core.Application.Pipelines.Validation;
 using FluentValidation;
+using Kodlama.io.Devs.Application.Features.Auths.Rules;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Rules;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Rules;
-using Kodlama.io.Devs.Application.Features.Users.Rules;
 using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Rules;
+using Kodlama.io.Devs.Application.Services.AuthService;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Kodlama.io.Devs.Application;
@@ -24,7 +24,7 @@ public static class KodlamaioDevsApplicationServiceRegistration
 
         services.AddScoped<ProgrammingLanguageBusinessRules>();
         services.AddScoped<ProgrammingTechnologyBusinessRules>();
-        services.AddScoped<UserBusinessRules>();
+        services.AddScoped<AuthBusinessRules>();
         services.AddScoped<UserSocialMediaAddressBusinessRules>();
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
@@ -34,6 +34,7 @@ public static class KodlamaioDevsApplicationServiceRegistration
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
 
+        services.AddScoped<IAuthService, AuthManager>();
         return services;
     }
 }

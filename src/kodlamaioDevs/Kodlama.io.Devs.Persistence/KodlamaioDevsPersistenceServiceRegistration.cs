@@ -23,6 +23,8 @@ public static class KodlamaioDevsPersistenceServiceRegistration
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
         services.AddScoped<IUserSocialMediaAddressRepository, UserSocialMediaAddressRepository>();
+        services.AddScoped<IOperationClaimRepository, OperationClaimRepository>();
+        services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
         
         return services;
     }
