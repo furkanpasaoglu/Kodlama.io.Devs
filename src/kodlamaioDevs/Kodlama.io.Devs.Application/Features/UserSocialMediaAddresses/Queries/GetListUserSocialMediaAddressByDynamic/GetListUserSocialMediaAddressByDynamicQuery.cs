@@ -2,6 +2,7 @@
 using Core.Application.Pipelines.Authorization;
 using Core.Application.Requests;
 using Core.Persistence.Dynamic;
+using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Constants;
 using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Models;
 using Kodlama.io.Devs.Application.Services.Repositories;
 using MediatR;
@@ -16,8 +17,11 @@ public class GetListUserSocialMediaAddressByDynamicQuery : IRequest<UserSocialMe
 {
     public Dynamic Dynamic { get; set; }
     public PageRequest PageRequest { get; set; }
-    
-    public string[] Roles { get; } = { "User" };
+    public string[] Roles { get; } =
+    {
+        UserSocialMediaAddressRoles.UserSocialMediaAddressAdmin,
+        UserSocialMediaAddressRoles.UserSocialMediaAddressRead
+    };
 
     /// <summary>
     /// Tüm kullanıcıların sosyal medya adresi için işleyici sınıfı

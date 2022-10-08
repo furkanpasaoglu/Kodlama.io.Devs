@@ -2,6 +2,7 @@
 using Core.Application.Pipelines.Authorization;
 using Core.Application.Requests;
 using Core.Persistence.Dynamic;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Constants;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Models;
 using Kodlama.io.Devs.Application.Services.Repositories;
 using MediatR;
@@ -16,8 +17,11 @@ public class GetListProgrammingLanguageTechnologyByDynamicQuery : IRequest<Progr
 {
     public Dynamic Dynamic { get; set; }
     public PageRequest PageRequest { get; set; }
-    
-    public string[] Roles { get; } = { "User" };
+    public string[] Roles { get; } =
+    {
+        ProgrammingLanguageTechnologyRoles.ProgrammingLanguageTechnologyAdmin,
+        ProgrammingLanguageTechnologyRoles.ProgrammingLanguageTechnologyRead
+    };
 
     /// <summary>
     /// Programlama dili teknolojisi için işleyici sınıfı

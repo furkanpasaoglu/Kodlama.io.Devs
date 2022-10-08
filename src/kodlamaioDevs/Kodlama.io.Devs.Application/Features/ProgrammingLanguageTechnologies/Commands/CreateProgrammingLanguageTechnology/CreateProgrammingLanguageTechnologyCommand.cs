@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Core.Application.Pipelines.Authorization;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Constants;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Dtos;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -10,10 +12,15 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.C
 /// <summary>
 /// Programlama dili Teknolojisi Oluşturma Komutu
 /// </summary>
-public class CreateProgrammingLanguageTechnologyCommand: IRequest<CreatedProgrammingLanguageTechnologyDto>
+public class CreateProgrammingLanguageTechnologyCommand: IRequest<CreatedProgrammingLanguageTechnologyDto>, ISecuredRequest
 {
     public int ProgrammingLanguageId { get; set; }
     public string Name { get; set; }
+    public string[] Roles { get; } =
+    {
+        ProgrammingLanguageTechnologyRoles.ProgrammingLanguageTechnologyAdmin,
+        ProgrammingLanguageTechnologyRoles.ProgrammingLanguageTechnologyCreate
+    };
 
     /// <summary>
     /// Programlama dili teknolojisi oluşturmak için kullanılan işleyici sınıfıdır.

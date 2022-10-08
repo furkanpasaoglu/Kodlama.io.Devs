@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Core.Application.Pipelines.Authorization;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Constants;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Dtos;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -11,11 +13,16 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.C
 /// <summary>
 /// Programlama Dili Teknolojisi Güncelleme Komutu
 /// </summary>
-public class UpdateProgrammingLanguageTechnologyCommand : IRequest<UpdatedProgrammingLanguageTechnologyDto>
+public class UpdateProgrammingLanguageTechnologyCommand : IRequest<UpdatedProgrammingLanguageTechnologyDto>,ISecuredRequest
 {
     public int Id { get; set; }
     public int ProgrammingLanguageId { get; set; }
     public string Name { get; set; }
+    public string[] Roles { get; } =
+    {
+        ProgrammingLanguageTechnologyRoles.ProgrammingLanguageTechnologyAdmin,
+        ProgrammingLanguageTechnologyRoles.ProgrammingLanguageTechnologyUpdate
+    };
     
     /// <summary>
     /// Programlama Dili Teknolojisi Güncellemek için kullanılan işleyici sınıfıdır.

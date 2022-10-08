@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Core.Application.Pipelines.Authorization;
 using Core.Application.Requests;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Constants;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Models;
 using Kodlama.io.Devs.Application.Services.Repositories;
 using MediatR;
@@ -13,9 +14,13 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Q
 /// </summary>
 public class GetListProgrammingLanguageTechnologyQuery : IRequest<ProgrammingLanguageTechnologyListModel>,ISecuredRequest
 {
-    public PageRequest PageRequest { get; set; }    public string[] Roles { get; } = { "User" };
+    public PageRequest PageRequest { get; set; }    
+    public string[] Roles { get; } =
+    {
+        ProgrammingLanguageTechnologyRoles.ProgrammingLanguageTechnologyAdmin,
+        ProgrammingLanguageTechnologyRoles.ProgrammingLanguageTechnologyRead
+    };
 
-    
     /// <summary>
     /// Programlama teknolojisi için işleyici sınıfı
     /// </summary>

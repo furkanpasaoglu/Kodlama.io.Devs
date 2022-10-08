@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Core.Application.Pipelines.Authorization;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Constants;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Dtos;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -15,7 +16,11 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.Del
 public class DeleteProgrammingLanguageCommand : IRequest<DeletedProgrammingLanguageDto>,ISecuredRequest
 {
     public int Id { get; set; }
-    public string[] Roles { get; } = { "User" };
+    public string[] Roles { get; } =
+    {
+        ProgrammingLanguageRoles.ProgrammingLanguageAdmin,
+        ProgrammingLanguageRoles.ProgrammingLanguageDelete
+    };
 
     /// <summary>
     /// Programlama Dili Silmek için kullanılan işleyici sınıfıdır.

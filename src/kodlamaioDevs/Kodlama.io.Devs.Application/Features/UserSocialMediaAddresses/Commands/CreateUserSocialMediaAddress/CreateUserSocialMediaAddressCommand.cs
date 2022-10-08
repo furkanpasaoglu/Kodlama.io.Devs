@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Core.Application.Pipelines.Authorization;
+using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Constants;
 using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Dtos;
 using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -15,7 +16,11 @@ public class CreateUserSocialMediaAddressCommand : IRequest<CreatedUserSocialMed
 {
     public int UserId { get; set; }
     public string GithubUrl { get; set; }
-    public string[] Roles { get; } = { "User" };
+    public string[] Roles { get; } =
+    {
+        UserSocialMediaAddressRoles.UserSocialMediaAddressAdmin,
+        UserSocialMediaAddressRoles.UserSocialMediaAddressCreate
+    };
 
     /// <summary>
     /// Oluşturlacak Kullanıcı Sosyal Medya Adresinin İşleyici Sınıfıdır.

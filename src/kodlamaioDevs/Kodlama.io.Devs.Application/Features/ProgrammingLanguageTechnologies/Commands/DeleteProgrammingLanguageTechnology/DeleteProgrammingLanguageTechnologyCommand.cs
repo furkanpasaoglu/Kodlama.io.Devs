@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Core.Application.Pipelines.Authorization;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Constants;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Dtos;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -9,9 +11,14 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.C
 /// <summary>
 /// Programlama dili teknolojisi silme komutu
 /// </summary>
-public class DeleteProgrammingLanguageTechnologyCommand : IRequest<DeletedProgrammingLanguageTechnologyDto>
+public class DeleteProgrammingLanguageTechnologyCommand : IRequest<DeletedProgrammingLanguageTechnologyDto>,ISecuredRequest
 {
     public int Id { get; set; }
+    public string[] Roles { get; } =
+    {
+        ProgrammingLanguageTechnologyRoles.ProgrammingLanguageTechnologyAdmin,
+        ProgrammingLanguageTechnologyRoles.ProgrammingLanguageTechnologyDelete
+    };
 
     /// <summary>
     /// Programlama Dili Teknolojisi Silmek için kullanılan işleyici sınıfıdır.

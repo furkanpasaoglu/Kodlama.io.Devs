@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Core.Application.Pipelines.Authorization;
 using Core.Application.Requests;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Constants;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Models;
 using Kodlama.io.Devs.Application.Services.Repositories;
 using MediatR;
@@ -15,7 +16,11 @@ public class GetListProgrammingLanguageQuery : IRequest<ProgrammingLanguageListM
 {
     public PageRequest PageRequest { get; set; }
     
-    public string[] Roles { get; } = { "User" };
+    public string[] Roles { get; } =
+    {
+        ProgrammingLanguageRoles.ProgrammingLanguageAdmin,
+        ProgrammingLanguageRoles.ProgrammingLanguageRead
+    };
 
     /// <summary>
     /// Programlama Dili Listelemek için kullanılan işleyici sınıfıdır.

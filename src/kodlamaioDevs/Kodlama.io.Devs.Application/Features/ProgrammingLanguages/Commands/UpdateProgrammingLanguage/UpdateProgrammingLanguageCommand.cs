@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Core.Application.Pipelines.Authorization;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Constants;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Dtos;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -17,7 +18,11 @@ public class UpdateProgrammingLanguageCommand : IRequest<UpdatedProgrammingLangu
     public int Id { get; set; }
     public string Name { get; set; }
     
-    public string[] Roles { get; } = { "User" };
+    public string[] Roles { get; } =
+    {
+        ProgrammingLanguageRoles.ProgrammingLanguageAdmin,
+        ProgrammingLanguageRoles.ProgrammingLanguageUpdate
+    };
 
     /// <summary>
     /// Programlama Dili Güncellemek için kullanılan işleyici sınıfıdır.

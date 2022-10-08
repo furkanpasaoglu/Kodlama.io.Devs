@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Core.Application.Pipelines.Authorization;
+using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Constants;
 using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Dtos;
 using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -13,7 +14,11 @@ namespace Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Commands
 public class DeleteUserSocialMediaAddressCommand : IRequest<DeletedUserSocialMediaAddressDto>, ISecuredRequest
 {
     public int Id { get; set; }
-    public string[] Roles { get; } = { "User" };
+    public string[] Roles { get; } =
+    {
+        UserSocialMediaAddressRoles.UserSocialMediaAddressAdmin,
+        UserSocialMediaAddressRoles.UserSocialMediaAddressDelete
+    };
 
     /// <summary>
     /// Silinecek Kullanıcı Sosyal Medya Adresinin İşleyici Sınıfıdır.

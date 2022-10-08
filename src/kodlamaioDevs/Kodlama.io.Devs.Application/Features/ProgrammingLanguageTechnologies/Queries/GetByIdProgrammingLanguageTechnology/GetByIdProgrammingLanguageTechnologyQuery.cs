@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Core.Application.Pipelines.Authorization;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Constants;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguageTechnologies.Dtos;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -15,7 +16,11 @@ public class GetByIdProgrammingLanguageTechnologyQuery : IRequest<ProgrammingLan
 {
     public int Id { get; set; }
     
-    public string[] Roles { get; } = { "User" };
+    public string[] Roles { get; } =
+    {
+        ProgrammingLanguageTechnologyRoles.ProgrammingLanguageTechnologyAdmin,
+        ProgrammingLanguageTechnologyRoles.ProgrammingLanguageTechnologyRead
+    };
 
     /// <summary>
     /// Programlama dili teknolojisi için işleyici sınıf

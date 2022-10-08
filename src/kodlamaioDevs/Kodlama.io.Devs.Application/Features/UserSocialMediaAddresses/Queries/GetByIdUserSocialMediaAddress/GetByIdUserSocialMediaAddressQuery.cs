@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Core.Application.Pipelines.Authorization;
+using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Constants;
 using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Dtos;
 using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Rules;
 using Kodlama.io.Devs.Application.Services.Repositories;
@@ -14,7 +15,11 @@ namespace Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Queries.
 public class GetByIdUserSocialMediaAddressQuery : IRequest<UserSocialMediaAddressGetByIdDto>, ISecuredRequest
 {
     public int Id { get; set; }
-    public string[] Roles { get; } = { "User" };
+    public string[] Roles { get; } =
+    {
+        UserSocialMediaAddressRoles.UserSocialMediaAddressAdmin,
+        UserSocialMediaAddressRoles.UserSocialMediaAddressRead
+    };
 
     /// <summary>
     /// Kullanıcı Sosyal Medya Adresi Getirmek için işleyici sınıfı.
