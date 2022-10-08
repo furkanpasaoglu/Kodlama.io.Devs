@@ -17,7 +17,6 @@ public class CreateProgrammingLanguageCommand : IRequest<CreatedProgrammingLangu
     public string Name { get; set; }
     public string[] Roles { get; } =
     {
-        //created new constant for role
         ProgrammingLanguageRoles.ProgrammingLanguageAdmin,
         ProgrammingLanguageRoles.ProgrammingLanguageCreate
     };
