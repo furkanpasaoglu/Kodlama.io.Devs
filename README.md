@@ -34,6 +34,11 @@ System.IdentityModel.Tokens.Jwt="6.23.1"
 - *4.Hafta Swagger Doc Bearer (Authorize) Eklendi.*
 - *4.Hafta Summary Eklendi.*
 - *4.Hafta Refactoring Yapıldı.*
+- *5.Hafta Authentication Yapısı Tekrar Düzeltildi.*
+- *5.Hafta Operation Claim Ekleyebilir,Silebilir,Güncelleyebilir Ve Listeleyebilir Şeklinde Ayarlandı.*
+- *5.Hafta User Operation Claim Ekleyebilir,Silebilir,Güncelleyebilir Ve Listeleyebilir Şeklinde Ayarlandı.*
+- *5.Hafta Summary Eklendi.*
+- *5.Hafta Refactoring Yapıldı.*
   <br>
 
 ## :pencil2:Authors
