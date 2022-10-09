@@ -46,8 +46,6 @@ public class UpdateProgrammingLanguageCommand : IRequest<UpdatedProgrammingLangu
             await _programmingLanguageBusinessRules.ProgrammingLanguageNameCanNotBeDuplicated(request.Name);
             
             var programmingLanguage = await _programmingLanguageRepository.GetAsync(x=>x.Id == request.Id);
-
-            _programmingLanguageBusinessRules.ProgrammingLanguageShouldExistWhenRequested(programmingLanguage);
             
             var mappedProgrammingLanguage = _mapper.Map(request,programmingLanguage);
             var updatedProgrammingLanguage = await _programmingLanguageRepository.UpdateAsync(mappedProgrammingLanguage);

@@ -1,9 +1,11 @@
 ﻿using Core.Application.Requests;
+using Core.Persistence.Dynamic;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.CreateProgrammingLanguage;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.DeleteProgrammingLanguage;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.UpdateProgrammingLanguage;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Queries.GetByIdProgrammingLanguage;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Queries.GetListProgrammingLanguage;
+using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Queries.GetListProgrammingLanguageByDynamic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Kodlama.io.Devs.WebAPI.Controllers;
@@ -74,4 +76,17 @@ public class ProgrammingLanguagesController : BaseController
         return Ok(result);
     }
     
+    /// <summary>
+    /// Programlama dillerini getirme işlemi dinamik sorgu ile.
+    /// </summary>
+    /// <param name="pageRequest">Sayfalama bilgileri.</param>
+    /// <param name="dynamic">Dinamik sorgu bilgileri.</param>
+    /// <returns>Getirilen programlama dilleri bilgileri.</returns>
+    [HttpPost("GetList/ByDynamic")]
+    public async Task<ActionResult> GetListByDynamic([FromQuery] PageRequest pageRequest, [FromBody] Dynamic dynamic)
+    {
+        var getListByDynamicProgrammingLanguageQuery = new GetListProgrammingLanguageByDynamicQuery { PageRequest = pageRequest, Dynamic = dynamic };
+        var result = await Mediator!.Send(getListByDynamicProgrammingLanguageQuery);
+        return Ok(result);
+    }
 }

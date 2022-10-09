@@ -3,8 +3,10 @@ using Core.Application.Pipelines.Authorization;
 using Core.Application.Pipelines.Validation;
 using FluentValidation;
 using Kodlama.io.Devs.Application.Features.Auths.Rules;
+using Kodlama.io.Devs.Application.Features.OperationClaims.Rules;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Rules;
 using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Rules;
+using Kodlama.io.Devs.Application.Features.UserOperationClaims.Rules;
 using Kodlama.io.Devs.Application.Features.UserSocialMediaAddresses.Rules;
 using Kodlama.io.Devs.Application.Services.AuthService;
 using MediatR;
@@ -26,6 +28,8 @@ public static class KodlamaioDevsApplicationServiceRegistration
         services.AddScoped<ProgrammingTechnologyBusinessRules>();
         services.AddScoped<AuthBusinessRules>();
         services.AddScoped<UserSocialMediaAddressBusinessRules>();
+        services.AddScoped<UserOperationClaimBusinessRules>();
+        services.AddScoped<OperationClaimBusinessRules>();
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
         //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CachingBehavior<,>));

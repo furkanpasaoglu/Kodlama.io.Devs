@@ -41,7 +41,6 @@ public class CreateProgrammingLanguageTechnologyCommand: IRequest<CreatedProgram
         public async Task<CreatedProgrammingLanguageTechnologyDto> Handle(CreateProgrammingLanguageTechnologyCommand request, CancellationToken cancellationToken)
         {
             await _programmingLanguageTechnologyBusinessRules.ProgrammingTechnologyNameCanNotBeDuplicated(request.Name);
-            await _programmingLanguageTechnologyBusinessRules.ProgrammingLanguageMustExistAsync(request.ProgrammingLanguageId);
             
             var mappedProgrammingTechnology = _mapper.Map<ProgrammingLanguageTechnology>(request);
             var createdProgrammingTechnology = await _programmingLanguageLanguageTechnologyRepository.AddAsync(mappedProgrammingTechnology);

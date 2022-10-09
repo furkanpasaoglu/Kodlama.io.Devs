@@ -15,6 +15,10 @@ public class UpdateProgrammingLanguageCommandValidator : AbstractValidator<Updat
             .NotNull()
             .WithMessage(ProgrammingLanguageMessages.ProgrammingLanguageIdIsRequired);
         
+        RuleFor(d => d.Id)
+            .GreaterThan(0)
+            .WithMessage(ProgrammingLanguageMessages.ProgrammingLanguageGreaterThanZero);
+        
         RuleFor(x => x.Name)
             .NotEmpty()
             .NotNull()

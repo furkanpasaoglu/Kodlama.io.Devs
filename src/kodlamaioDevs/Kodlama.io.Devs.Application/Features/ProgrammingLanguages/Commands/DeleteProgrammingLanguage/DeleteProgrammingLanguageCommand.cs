@@ -43,9 +43,6 @@ public class DeleteProgrammingLanguageCommand : IRequest<DeletedProgrammingLangu
             await _programmingLanguageBusinessRules.ProgrammingLanguageIdShouldBeExist(request.Id);
             
             var programmingLanguage = await _programmingLanguageRepository.GetAsync(x => x.Id == request.Id);
-            
-            _programmingLanguageBusinessRules.ProgrammingLanguageShouldExistWhenRequested(programmingLanguage);
-            
             var deletedProgrammingLanguage = await _programmingLanguageRepository.DeleteAsync(programmingLanguage);
             var mappedDeletedProgrammingLanguageDto = _mapper.Map<DeletedProgrammingLanguageDto>(deletedProgrammingLanguage);
             return mappedDeletedProgrammingLanguageDto;
