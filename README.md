@@ -22,6 +22,38 @@ System.IdentityModel.Tokens.Jwt="6.23.1"
 > Token Gönderdiğiniz Halde, Hala Hata Alıyorsanız
 > ```System.IdentityModel.Tokens.Jwt``` Nuget Paketini WebAPI Katmanına Yükleyiniz.
 
+## Role Names
+```
+ProgrammingLanguage.Admin
+ProgrammingLanguage.User
+ProgrammingLanguage.Create
+ProgrammingLanguage.Delete
+ProgrammingLanguage.Update
+ProgrammingLanguage.Read
+ProgrammingLanguageTechnology.Admin
+ProgrammingLanguageTechnology.User
+ProgrammingLanguageTechnology.Create
+ProgrammingLanguageTechnology.Delete
+ProgrammingLanguageTechnology.Update
+ProgrammingLanguageTechnology.Read
+UserSocialMediaAddress.Admin
+UserSocialMediaAddress.User
+UserSocialMediaAddress.Create
+UserSocialMediaAddress.Delete
+UserSocialMediaAddress.Update
+UserSocialMediaAddress.Read
+OperationClaim.Admin
+OperationClaim.Create
+OperationClaim.Delete
+OperationClaim.Update
+OperationClaim.Read
+UserOperationClaim.Admin
+UserOperationClaim.Create
+UserOperationClaim.Delete
+UserOperationClaim.Update
+UserOperationClaim.Read
+```
+
 ## Kodlama.io.Devs Project Notes
 - *3.Hafta Programlama Dilleri Varlığı İçin CRUD İşlemi Yapıldı.*
 - *3.Hafta Programlama Dilleri İçin Business Rules İşlemi Yapıldı*
