@@ -1,4 +1,4 @@
-﻿# Kodlama.io.Devs (.Net 6 Project)
+﻿# :zap:Kodlama.io.Devs (.Net 6 Project):zap:
 
 <img src="images/yazilimgelistirmekampi.gif" width="1000" height="250"/>
 
@@ -22,7 +22,7 @@ System.IdentityModel.Tokens.Jwt="6.23.1"
 > Token Gönderdiğiniz Halde, Hala Hata Alıyorsanız
 > ```System.IdentityModel.Tokens.Jwt``` Nuget Paketini WebAPI Katmanına Yükleyiniz.
 
-## Role Names
+## :scroll:Role Names
 ```
 ProgrammingLanguage.Admin
 ProgrammingLanguage.User
@@ -54,7 +54,7 @@ UserOperationClaim.Update
 UserOperationClaim.Read
 ```
 
-## Kodlama.io.Devs Project Notes
+## :fire:Kodlama.io.Devs Project Notes:fire:
 - *3.Hafta Programlama Dilleri Varlığı İçin CRUD İşlemi Yapıldı.*
 - *3.Hafta Programlama Dilleri İçin Business Rules İşlemi Yapıldı*
 - *3.Hafta Programlama Dilleri İçin Validasyon İşlemi Yapıldı.*
